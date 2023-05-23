@@ -1,0 +1,32 @@
+ul{
+    overflow-x:hidden;
+    max-width: 400px;
+}
+li:before{
+    content: "•";
+    vertical-align: center;
+    margin-right: 2px;
+  }
+.list-group-item{
+    display:block;
+    border: 1px;
+    border-style: dashed;
+    border-color: black;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    text-align: center;
+    
+}
+
+.remove_button {
+    
+    float:inline-end;
+    background-color: white; /* Green */
+    border: none;
+    color: red;
+    font-weight: bolder;
+    text-decoration: none;
+    margin-top: -35px;
+    padding-inline-start: 0px;
+
+  }
