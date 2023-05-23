@@ -1,6 +1,5 @@
-
 <script>
-import * from './TodoForm.vue'
+
   export default {
     methods: {
       RemoveTodo(index) {
@@ -9,10 +8,15 @@ import * from './TodoForm.vue'
       Clear(){
         this.TodoList.splice(0);
       }
+    },
+    mounted() {
+      this.RemoveTodo();
+      this.Clear();
     }
   };
-</script>
+  </script>
 <template>
+  
     <button @click="Clear">Clear</button>
     <ul>
       <li v-for="(item, i) in TodoList" :key="i">{{ item }}<button @click="RemoveTodo(i)">X</button></li>
