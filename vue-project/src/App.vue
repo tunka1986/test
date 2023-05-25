@@ -1,13 +1,15 @@
 <script setup>
 import { ref } from 'vue'
 import ToDoForm from './components/ToDoForm.vue'
+
 //import ToDoFormModal from './components/ToDoFormModal.vue'
 const list = ref([])
-const prios=[
-  { id: 0, name: "low", color: "cyan" },
-  { id: 1, name: "normal", color: "yellow" },
-  { id: 2, name: "high", color: "red" }
-]
+const prios= ref([
+  { id: 0, name: "low", color: "background-color: cyan" },
+  { id: 1, name: "normal", color: "background-color: orange" },
+  { id: 2, name: "high", color: "background-color: red" }
+])
+
 const AddToDo = inputToDo => {
   list.value.push(inputToDo)
 }
@@ -21,6 +23,11 @@ const open = ref(false)
 function modalState(){
   return open.value ===true ? "opacity:30%; pointer-events:none; " : "";
 }
+
+function complete(status){
+    return status !== 'active' ?  "text-decoration: line-through;" : "";
+  }
+
 
 </script>
 
@@ -42,15 +49,17 @@ function modalState(){
 </div>
 
   <ul class="parent list-group">
+    <div v-if=!list.length>Nothing To Do</div>
     <li class="ToDoBox" v-for="entry in list" :key="entry">
       <div class="top_items">
-        <div class="title">{{ entry.title }}</div>
-        <div class="prio">
-          <select>
-            <option v-for="prio in prios" :key="prio" :value="prio.id" :selected="prio.id===entry.prio ? true : false ">{{prio.name}}</option>
-            
+        <div :style="complete(entry.status)" class="title">{{ entry.title }}</div>
+        <div class="prio" :style='prios[entry.prio].color'>{{prios[entry.prio].name}}
+
+<!--          <select>
+            <option v-for="prio in prios" :key="prio" :value="prio.id" :selected="prio.id===entry.prio ? true : false ">{{prio.name}}</option>            
           </select>
-        </div>
+        -->
+             </div>
       </div>
       <div class="description">{{entry.description}}</div>
     </li>
