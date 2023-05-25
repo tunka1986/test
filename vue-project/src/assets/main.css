@@ -1,32 +1,83 @@
-ul{
-    overflow-x:hidden;
-    max-width: 400px;
-}
-li:before{
-    content: "•";
-    vertical-align: center;
-    margin-right: 2px;
-  }
-.list-group-item{
+.ToDoBox {
     display:block;
     border: 1px;
-    border-style: dashed;
+    border-style: solid;
     border-color: black;
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 0px;
+    padding-bottom: 25px;
+    padding-left: 3px;
+    margin-top: 15px;
     text-align: center;
-    
+    border-radius: 5px;
+}
+.top_items,.header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+    margin-top: 2px;
+}
+.title {
+    margin-left:2px;
+}
+.prio {
+    margin-right: 5px;
 }
 
+.description {
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: end;
+    text-align: left;
+}
 .remove_button {
     
     float:inline-end;
-    background-color: white; /* Green */
+    background-color: white;
     border: none;
     color: red;
     font-weight: bolder;
     text-decoration: none;
-    margin-top: -35px;
+    margin-top: 0px;
     padding-inline-start: 0px;
+    vertical-align: top;
 
   }
+  .modal {
+    position: fixed;
+    z-index: 999;
+    top: 20%;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    background-color: gray;
+    transition: background-color 250ms ease;
+    text-align: center;  
+    padding:20px;
+  }
+.modal-overlay{
+    text-align: center;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    scroll-padding-block: 20%;
+    overflow-x:hidden;
+    width: 30%;
+    margin: auto;
+  
+}
+.header{
+    font-size:xx-large;
+} 
+.addToDoButton{
+    height:50px;
+    width: 50px;
+
+    background-color: green;
+    border-radius: 50%;
+    border: 0px;
+    display: inline-block;
+    color: white;
+    font-size: larger;
+}

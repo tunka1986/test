@@ -1,22 +1,26 @@
-<template>
+
+<template>  
     <input 
-      v-model="value"
+      v-model="inputToDoTitle"
       type="text"
       class="form-control"
-      placeholder="Please enter"
-      @keyup.enter="handleSubmit"
-      ref="text_input"
-      >
+      placeholder="Please enter title"
+      @keyup.enter="handleSubmit"> 
+    <textarea
+     v-model="inputToDoDescription"
+    placeholder="Please add description">
+  </textarea>
       <button @click="handleSubmit" class="btn btn-primary" type="button">add</button>
-
 </template>
 <script setup>
 import { ref, defineEmits } from 'vue'
-const value = ref('')
+const inputToDoTitle = ref()
+const inputToDoDescription = ref()
+const entryId = ref(0)
 const emits = defineEmits(['add'])
 const handleSubmit = () => {
-  emits('add', value.value)
-  value.value = ''
+  emits('add', {id:entryId.value++, title:inputToDoTitle.value, description:inputToDoDescription.value, prio:1})
+  inputToDoTitle.value = ''
+  inputToDoDescription.value = ''
 }
-import { nextTick } from 'vue';
 </script>
