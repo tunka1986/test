@@ -1,6 +1,6 @@
 .ToDoBox {
     display:block;
-    border: 1px;
+    border: 3px;
     border-style: solid;
     border-color: black;
     padding-top: 0px;
@@ -10,7 +10,7 @@
     text-align: center;
     border-radius: 5px;
 }
-.top_items,.header {
+.top_items,.header,.bottomli {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -29,8 +29,7 @@
 .description {
     padding-top: 20px;
     margin-top: 20px;
-    text-align: end;
-    text-align: left;
+    text-align:left;
 }
 .remove_button {
     
@@ -84,6 +83,61 @@
 .prio{
     border-radius: 25px;
     padding: 10px;
+    color: white;
+    font-weight: bolder;
     
+ 
 
 }
+.checkboxDiv{
+    text-align:left;
+    margin-right: 50px;
+    margin-top: auto;
+
+}
+  input[type=checkbox] + label {
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    border: 5px solid #555;
+    border-radius: 100%;
+    
+    transform: translate(-50%, -50%);
+    transition: all ease-out 200ms;
+    text-indent: 90px;
+    font: normal normal 30px/60px "Helvetica";
+    white-space: nowrap;
+    color: #555;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  input[type=checkbox] + label:after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 25px;
+    border-bottom: 10px solid #22b573;
+    border-left: 10px solid #22b573;
+    top: 25%;
+    left: 50%;
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: all ease-out 200ms;
+  }
+  
+  input[type=checkbox]:checked + label {
+    border: 5px solid #22b573;
+  }
+  input[type=checkbox]:checked + label:after {
+    opacity: 1;
+    width: 30px;
+    height: 8px;
+    
+  }
+  
+  .completebox {
+    display: none;
+  }
