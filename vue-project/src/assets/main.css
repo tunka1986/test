@@ -1,0 +1,24 @@
+.mainBody{
+  position:fixed;
+  margin: auto;
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 20.16%;
+}
+
+.header{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
+  width: 58.32%;
+  font-size: 72px;
+}
+
+
+
